@@ -373,7 +373,7 @@ class ModelManager(private val context: Context) {
 
         // Default selection on a fresh install
         const val DEFAULT_MODEL_ID = "zipformer_multilingual_universal"
-        const val DEFAULT_ACCURATE_MODEL_ID = "sensevoice"
+        const val DEFAULT_ACCURATE_MODEL_ID = "whisper_base"
 
         // Whisper can be locked to any language code it knows; this marker means "any"
         val WHISPER_ANY_LANGUAGE = listOf("*")
@@ -427,7 +427,7 @@ class ModelManager(private val context: Context) {
     // Speed or Accuracy. Each mode remembers its own selected model.
     private val _mode = MutableStateFlow(
         prefs.getString(KEY_MODE, null)?.let { saved -> RecognitionMode.entries.firstOrNull { it.name == saved } }
-            ?: RecognitionMode.SPEED
+            ?: RecognitionMode.ACCURACY
     )
     val mode: StateFlow<RecognitionMode> = _mode.asStateFlow()
 

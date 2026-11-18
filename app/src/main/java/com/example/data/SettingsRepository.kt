@@ -47,7 +47,7 @@ data class AppSettings(
     val maxDisplayLines: Int = 2, // 1 to MAX_OVERLAY_LINES
     // Roll-up style: past subtitles kept to scroll back to
     val rollUpHistory: Int = com.example.overlay.DEFAULT_ROLL_UP_HISTORY,
-    val showOriginalSpeech: Boolean = true,
+    val showOriginalSpeech: Boolean = false,
     val subtitleStyle: Int = 1, // SubtitleStyle code: 0 movie cards, 1 roll-up, 2 live
     val isAutoOverlayEnabled: Boolean = true, // open the floating subtitles when capture starts
     val overlayWidthDp: Int = 0, // floating window width set by resizing; 0 = automatic

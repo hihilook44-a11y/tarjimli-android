@@ -119,10 +119,10 @@ class LocalTranslatorEngine(private val context: Context) {
     // Minimum language-ID confidence for auto-detect to switch the source language.
     @Volatile var confidenceThreshold: Float = 0.55f
 
-    private val _sourceLanguage = MutableStateFlow(availableLanguages[0]) // Auto-Detect by default
+    private val _sourceLanguage = MutableStateFlow(availableLanguages.first { it.code == TranslateLanguage.TURKISH })
     val sourceLanguage: StateFlow<SupportedLanguage> = _sourceLanguage.asStateFlow()
 
-    private val _targetLanguage = MutableStateFlow(targetAvailableLanguages.first { it.code == TranslateLanguage.ENGLISH })
+    private val _targetLanguage = MutableStateFlow(targetAvailableLanguages.first { it.code == TranslateLanguage.ARABIC })
     val targetLanguage: StateFlow<SupportedLanguage> = _targetLanguage.asStateFlow()
 
     // Lightweight state flag indicating if any required language model is currently missing on disk
